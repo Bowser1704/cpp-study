@@ -1,2 +1,2 @@
 # cpp-study
-this is my s++ study
+this is my c++ study
