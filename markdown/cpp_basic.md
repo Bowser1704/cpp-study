@@ -16,19 +16,44 @@ the name of the constructor is same as the name of class.
 
 #### destructor
 
+#### inline 
+
+优化函数产生的消耗,overhead,但是必须要把body放在headfile.
+
+#### const
+
+const在`*`前面对象是const,在`*`后面指针是const
+
+```c++
+class A {
+    private:
+    	int i;
+    public:
+    	A() : i(10) {};
+    	void f() {}
+    	void f() const {}
+}
+//两个f()也构成overload,因为实际上的参数分别是
+//void f(A* this)
+//void f(const A* this)
+```
+
+
+
   
 
 ### 引用
 
 引用是一个别名，它可以说完全是原变量，地址啊，值啊，都是，改变引用也会改变原来的值。
 
-- 引用与指针的区别
+- 引用与指针的区别(实际上reference就是一种pointer)
 
   1. 不存在空引用。引用必须连接到一块合法的内存。
   2. 一旦引用被初始化为一个对象，就不能被指向到另一个对象。指针可以在任何时候指向到另一个对象。**即引用是不可以修改的**
   3. 引用必须声明时初始化,指针和普通变量一样.
 
   ```c++
+  const int& x = z;	//不能通过x修改z, 即x是不能修改的.
   int i;				//变量
   int & a = i; 	//引用
   
