@@ -1,4 +1,4 @@
-Q&A:
+ Q&A:
 
 1. 什么是多态 polymorphism
 
@@ -74,7 +74,23 @@ Q&A:
       }
       ```
 
-2. 重载机制
+2. 继承`inherit`
+
+   三种继承方式	![方式](https://github.com/QunxingHu/images/raw/master/c++%E7%B1%BB%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F.jpg)
+
+   1. 父类的private，在子类中都是禁止访问的。private只有自己的类函数可以访问。**private是对于类来说的，而不是对象，即同一个类的对象可以互相访问对方的private的对象，并且这只存在于编译环境**
+
+   2. protected说明是子子孙孙可以访问
+
+   3. 友元`friend`
+
+      令其他类或者说函数成为他的友元便可以访问原来类的private对象。**运算符重载用得比较多**。
+
+      就是说我声明一个类的时候，告诉编译器`xxx`是我的朋友，它就可以访问我的private，但是要知道，我声明，是别人才可以访问。
+
+3. 重载机制
+
+   [参考blog](http://huqunxing.site/2016/09/08/C++重载机制/)
 
    重载声明可以简单理解为你本来有一个函数，但是你可以通过重载，使同一个函数名，通过`参数的不同或者返回值类型不同`其实实现了不同的函数，你就可以通过修改声明时的`参数列表，定义，实现(运算符)`，编译器会根据你的参数自动帮你选择函数类型。
 
@@ -203,7 +219,9 @@ Q&A:
        
        ```
      
-       
+     - 二元运算符
+     
+     - ........
      
 
 ​     
@@ -240,26 +258,50 @@ Q&A:
 
 4. 拷贝构造
 
-   1. member 对 member的拷贝,每一个成员的拷贝,如果有指针member,就很重要,拷贝的是一样的.这样的话如果析构,或者说释放内存的时候,是重复释放两次的,会产生malloc错误,所以我们要自定义拷贝构造函数.
-   2. 如果拷贝构造的时候,用的是 obj(obj x),这样就是一个死循环,因为进参数的时候就是一次拷贝,这样就一直拷贝但是出不来.正确写法`obj(const obj *x)`
+   1. member 对 member的拷贝,每一个成员的拷贝,如果有指针member,就很重要,拷贝的是一样的.这样的话如果析构,或者说释放内存的时候,是重复释放两次的,会产生`malloc`错误,所以我们要自定义拷贝构造函数.
+   2. 如果拷贝构造的时候,用的是 T(T x),这样就是一个死循环,因为进参数的时候就是一次拷贝,这样就一直拷贝但是出不来.正确写法`T(const T *x)`
+   3. **还有可能会产生double free**，所以我们在析构函数内释放后，将指针都指向null，因为对指向null的指针free是合法的，`但是不知道这么做好不好`
 
-5. const reference      parameter 常常使用的是 const string& str 这是为什么
+5. new & delete
 
-6. default constructor, virtual  destructor, copy constructor(private)
+   运算符，operate，不是函数，
 
-7. static
+   - new
+
+     ```c++
+     /*每次new会有一张表做一个记录(1. 这块东西地址(首地址)在哪 2. 这块东西有多大)*/
+     new int;	//1. 分配空间
+     new Stash;	//1. 分配空间 2. 调用构造函数
+     new int[10];
+     ```
+
+   - delete
+
+     ```c++
+     /*每次delete(1.先去表里面找首地址 2. 然后知道有多大释放多大的空间) */
+     delete p;	//1. 只会调用一次析构函数 2. 释放全部空间
+     delete[] p;	//知道有多个对象，会调用多次析构函数(堆栈方式)，空间都是一样的释放
+     ```
+
+     
+
+6. `const` reference      parameter 常常使用的是 `const string& str` 这是为什么
+
+7. default constructor, virtual  destructor, copy constructor(private)
+
+8. static
 
    1. 持久存储
    2. 访问受限hidden,同时是全局的
 
-8. inline
-
-9. overloading operators
+9. `inline`
 
 10. templates
 
 11. streams
 
-12. STL ---> Standrad Template Library
+12. `STL` ---> Standard Template Library
 
-13. there are reasons to believe in a better world.
+13. 动态储存
+
+14. 利用`gdb`调试
