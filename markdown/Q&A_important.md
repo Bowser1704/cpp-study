@@ -300,8 +300,10 @@
 
 11. streams
 
-12. `STL` ---> Standard Template Library
+12. `STL` ---> Standard Template Library存   
 
 13. 动态储存
 
 14. 利用`gdb`调试
+
+15. 不可以同时在类构造声明，和函数定义声明缺省参数。
