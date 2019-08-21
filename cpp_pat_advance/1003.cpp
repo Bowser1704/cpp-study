@@ -13,11 +13,11 @@ void Djikstra(int s) {
     fill(d, d+MAXN, INF);   //fill and memset
     memset(num, 0, sizeof(num));
     memset(w, 0, sizeof(w));
-    d[s] = 0;
+    d[s] = 0;       //标志s为起点
     w[s] = weight[s];
     num[s] = 1;
     for (int i=0; i<N; i++){
-        int u=-1, MIN=INF;
+        int u=-1, MIN=INF;      //每次循环都格式化一下min
         for (int j=0; j<N; j++) {
             if (!vis[j] && d[j] < MIN) {
                 u = j;
@@ -41,7 +41,6 @@ void Djikstra(int s) {
                     }
                     num[v] += num[u];
                 }
-                
             }
         }
     }
