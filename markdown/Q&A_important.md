@@ -11,7 +11,10 @@
       2. `纯虚函数`：是虚函数，但是在父类中就没有definition，just declaration，方法是
 
          ```c++
-         virtual void funtion()=0
+         virtual void funtion()=0;
+         virtual void print() const = 0;
+         //（1）=0说明它是纯虚函数
+         //（2）const表明不能修改其数据成员
          ```
 
       3. 抽象类：包含了纯虚函数就是抽象类，不可以直接实例化对象，只能作为父类用。
@@ -287,7 +290,7 @@
 
 6. `const` reference      parameter 常常使用的是 `const string& str` 这是为什么
 
-7. default constructor, virtual  destructor, copy constructor(private)
+7. default constructor, virtual  destructor, copy constructor(private).
 
 8. static
 
@@ -306,4 +309,4 @@
 
 14. 利用`gdb`调试
 
-15. 不可以同时在类构造声明，和函数定义声明缺省参数。
+15. 不可以同时在类构造声明，和函数定义声明缺省参数。p

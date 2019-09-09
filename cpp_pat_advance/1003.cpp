@@ -22,7 +22,6 @@ void Djikstra(int s) {
             if (!vis[j] && d[j] < MIN) {
                 u = j;
                 MIN = d[j];
-                // vis[j] = true;
             }
         }
         if (u==-1)  return ;
