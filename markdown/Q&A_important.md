@@ -243,6 +243,7 @@
 
      ```c++
      int x;
+     //会默认initialization
      ```
 
    - initialization 初始化
@@ -269,6 +270,16 @@
 
    运算符，operate，不是函数，
 
+   - new创建类对象与不new区别
+
+     下面是自己总结的一些关于new创建类对象特点：
+
+     - new创建类对象需要指针接收，一处初始化，多处使用
+     - new创建类对象使用完需delete销毁
+     - new创建对象直接使用堆空间，而局部不用new定义类对象则使用栈空间
+     - new对象指针用途广泛，比如作为函数返回值、函数参数等
+     - 频繁调用场合并不适合new，就像new申请和释放内存一样
+
    - new
 
      ```c++
@@ -286,27 +297,31 @@
      delete[] p;	//知道有多个对象，会调用多次析构函数(堆栈方式)，空间都是一样的释放
      ```
 
-     
+6. `const` reference      parameter 常常使用的是 `const T& str` 这是为什么？
 
-6. `const` reference      parameter 常常使用的是 `const string& str` 这是为什么
+   这是为了防止函数改变了parameter，申明他为read-only对象。
 
 7. default constructor, virtual  destructor, copy constructor(private).
 
-8. static
+8. List initialization
+
+   
+
+9. static
 
    1. 持久存储
    2. 访问受限hidden,同时是全局的
 
-9. `inline`
+10. `inline`
 
-10. templates
+11. templates
 
-11. streams
+12. streams
 
-12. `STL` ---> Standard Template Library存   
+13. `STL` ---> Standard Template Library存   
 
-13. 动态储存
+14. 动态储存
 
-14. 利用`gdb`调试
+15. 利用`gdb`调试
 
-15. 不可以同时在类构造声明，和函数定义声明缺省参数。p
+16. 不可以同时在类构造声明，和函数定义声明缺省参数。p
