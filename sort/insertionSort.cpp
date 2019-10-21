@@ -1,26 +1,15 @@
+#include "sort.h"
 #include <iostream>
+#include <time.h>
+using namespace std;
 
-int* insertionSort(int *arr, int len){
-    int preIndex, key;
-    for(int i=1; i<len; i++){
-        preIndex = i-1;
-        key = arr[i];
-        while(preIndex >= 0 && arr[preIndex] > key){
-            arr[preIndex+1] = arr[preIndex];//元素后移
-            preIndex--;
+void Sort::insertionSort() {
+    clock_t start = clock();
+    for(int i = 1; i < len; i++) {
+        for(int j = i; j > 0 && arr[j] < arr[j - 1]; j--) {
+            exch(j, j-1);
         }
-        arr[preIndex+1] = key;
     }
-    return arr;
+    clock_t end = clock();
+    cout << "insertionSort:" << end - start << " milliseconds" << endl;
 }
-int main()
-{
-    int a[] = {3,2,1,21,213,423,556,7,57,34,65,23,77};
-    int len = sizeof(a) / sizeof(a[0]);
-    int *sortA = insertionSort(a, len);
-    for (int i=0; i<len; i++)
-        std::cout << sortA[i] << '-' ;
-    std::cout << std::endl;
-    return 0;
-}
-
