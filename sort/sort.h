@@ -1,5 +1,8 @@
 #ifndef SORT_H_
 #define SORT_H_ 
+#include <stdlib.h>
+#include <time.h>
+#include <iostream>
 
 class Sort{
     private:
@@ -13,7 +16,9 @@ class Sort{
         void insertionSort();
         void shellSort();
         void mergeSort();
+        void quickSort();
         void printSortArr();
+        // friend int pratition(int lo, int hi);
 };
 
 #endif

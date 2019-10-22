@@ -1,6 +1,4 @@
 #include "sort.h"
-#include <time.h>
-#include <iostream>
 
 void merge(int *aux, int *arr, int low, int mid, int high)
 {

@@ -1,6 +1,5 @@
 #include "sort.h"
-#include <iostream>
-#include <time.h>
+
 using namespace std;
 
 void Sort::shellSort() {
