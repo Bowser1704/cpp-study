@@ -10,5 +10,5 @@ void Sort::insertionSort() {
         }
     }
     clock_t end = clock();
-    cout << "insertionSort:" << end - start << " milliseconds" << endl;
+    cout << "insertionSort: " << end - start << " milliseconds" << endl;
 }

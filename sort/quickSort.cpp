@@ -1,12 +1,6 @@
 #include "sort.h"
 using namespace std;
 
-void exch(int a, int b, int *arr){
-    int temp = arr[a];
-    arr[a] = arr[b];
-    arr[b] = temp;
-}
-
 int partition(int lo, int hi, int *arr) {
     int i=lo, j=hi+1;
     int v = arr[lo];
@@ -14,10 +8,10 @@ int partition(int lo, int hi, int *arr) {
         while(arr[++i] < v) if(i==hi) break;
         while(arr[--j] > v) if(j==lo) break;
         if(i>=j) break;
-        exch(i, j, arr);
+        Sort::exch(i, j, arr);
         //notice j is lower than i, so exch(lo, j, arr)
     }
-    exch(lo, j, arr);
+    Sort::exch(lo, j, arr);
     return j;
 }
 

@@ -17,5 +17,9 @@ int main(int argc, char *argv[]) {
     
     sort4.quickSort();
     sort4.printSortArr();
+
+    Sort heapSort(length);
+    heapSort.heapSort();
+    heapSort.printSortArr();
     return 0;
 }

@@ -16,10 +16,10 @@ Sort::Sort(int length)
 Sort::~Sort()
 {
     delete[] arr;
-    cout << "destructor" << endl;
+    // cout << "destructor" << endl;
 }
 
-bool Sort::is_less(int a, int b)
+bool Sort::isLess(int a, int b)
 {
     return arr[a] < arr[b];
 }
@@ -35,4 +35,10 @@ void Sort::printSortArr() {
     for(int i = 0; i < len; i++) {
         printf("%d%c", arr[i],i==len-1?'\n':'-');
     }
+}
+
+void Sort::exch(int a, int b, int *arr) {
+    int temp = arr[a];
+    arr[a] = arr[b];
+    arr[b] = temp;
 }
