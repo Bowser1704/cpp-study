@@ -42,7 +42,29 @@ using namespace std;
 //     }
 //     return res;
 // }
-
+void setZeroes(vector<vector<int>>& matrix) {
+    int i=0, j=0;
+    while(i < matrix.size() && j < matrix[i].size()) {
+        if(matrix[i][j] == 0) {
+            matrix[i][0] = 0;
+            matrix[0][j] = 0;
+        }
+    }
+    for (int k = 0; k < matrix[0].size(); k++) {
+        if(matrix[0][k] == 0) {
+            for (int l = 1; l < matrix.size();l++) {
+                matrix[l][k] = 0;
+            }
+        }
+    }
+    for (int k = 0; k < matrix.size(); k++) {
+        if(matrix[k][0] == 0) {
+            for (int l = 1; l < matrix[0].size();l++) {
+                matrix[k][l] = 0;
+            }
+        }
+    }
+}
 
 
 bool canThreePartsEqualSum(vector<int>& A) {

@@ -17,6 +17,8 @@ CArray::CArray(const CArray &temp)
 CArray::~CArray()
 {
     // you can't use array != nullptr, it will... , I'm confused about that.
+    // C: compiler can't promise that NULL pointer is 0;
+    // C++: In c++, the definition of NULL is 0, compiler make nullptr as a null pointer, 
     if (!array)
     {
         delete[] array;
