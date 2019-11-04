@@ -8,7 +8,7 @@ public:
         cout << "Base::f(float)" << x << endl;
     }
     //无virtual关键字,不会运行时多态
-    void g(float x) {
+    virtual void g(float x) {
         cout << "Base::g(float)" << x << endl;
     }
 };
@@ -19,7 +19,7 @@ public:
         cout << "Derived::f(float)" << x << endl;
     }
     //子类与父类函数同名,但是父类没有virtual,或者有,但是参数不同都是隐藏
-    void g(int x) {
+    virtual void g(int x) {
         cout << "Derived::g(int)" << x << endl;
     }
 };
