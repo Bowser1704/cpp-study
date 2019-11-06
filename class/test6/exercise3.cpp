@@ -1,84 +1,146 @@
 #include <iostream>
 #include <math.h>
-#include <map>
-const double PI  =3.141592653589793238463;
+#include <vector>
+#include <algorithm>
+const double PI = 3.141592653589793238463;
 using namespace std;
 
-// using interface, but shape doesn't have member variables'
+// using interface
 // polymorphism
-class Shape {
-    public:
-        virtual double getArea() {}
-        virtual string getName() {return "Shape";}
+class Shape
+{
+protected:
+    string name;
+    double area;
+
+public:
+    virtual void setArea() { area = 0; }
+    virtual void setName() { name = "Shape"; }
+    void PrintArea()
+    {
+        std::cout << name << ": " << area << endl;
+    }
+    static bool comp(const Shape &a, const Shape &b)
+    {
+        return a.area < b.area;
+    }
 };
 
-class Triangle : public Shape {
-    private:
-        int x, y, z;
-    public:
-        Triangle(int _x, int _y, int _z) : x(_x), y(_y), z(_z) {}
-        int getCircumference() {return x+y+z;}
-        virtual double getArea() {
-            int p = getCircumference();
-            return sqrt(p*(p-x)*(p-y)*(p-z));
-        }
-        virtual string getName() {return "Triangle";}
+class Triangle : public Shape
+{
+private:
+    int x, y, z;
+
+public:
+    Triangle(int _x, int _y, int _z) : x(_x), y(_y), z(_z)
+    {
+        setArea();
+        setName();
+    }
+    virtual void setArea()
+    {
+        int p = (x + y + z) / 2;
+        area = sqrt(p * (p - x) * (p - y) * (p - z));
+    }
+    virtual void setName()
+    {
+        name = "Triangle";
+    }
 };
 
-class Circle : public Shape {
-    private:
-        int r;
-    public:
-        Circle (int _r): r(_r) {}
-        virtual double getArea() {
-            return PI*r* r;
-        }
-        virtual string getName() {return "Circle";}
+class Circle : public Shape
+{
+private:
+    int r;
+
+public:
+    Circle(int _r) : r(_r)
+    {
+        setArea();
+        setName();
+    }
+    virtual void setArea()
+    {
+        area = PI * r * r;
+    }
+    virtual void setName()
+    {
+        name = "Circle";
+    }
 };
 
-class Rectangle : public Shape {
-    private:
-        int x, y;
-    public:
-        Rectangle(int _x, int _y) : x(_x), y(_y) {}
-        virtual double getArea() {
-            return x*y;
-        }
-        virtual string getName() {return "Rectangle";}
+class Rectangle : public Shape
+{
+private:
+    int x, y;
+
+public:
+    Rectangle(int _x, int _y) : x(_x), y(_y)
+    {
+        setArea();
+        setName();
+    }
+    virtual void setArea()
+    {
+        area = x * y;
+    }
+    virtual void setName()
+    {
+        name = "Rectangle";
+    }
 };
 
-
-int main() {
-    map<string, double> shapes;
+int main()
+{
+    vector<Shape> shapes;
     int n;
-    scanf("%d\n", &n);
-    for (int i = 0; i < n;i++) {
-        char ch;
+    char ch;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        getchar();
         scanf("%c", &ch);
-        switch (ch) {
-            case 'R':{
-                int x,y;
-                scanf("%d%d", &x,&y);
-                Rectangle rectangle(x,y);
-                shapes[rectangle.getName()] = rectangle.getArea();
-            }
-            case 'T':{
-                int x,y,z;
-                scanf("%d%d%d",&x,&y,&z);
-                Triangle triangle(x,y,z);
-                shapes[triangle.getName()] = triangle.getArea();
-            }
-            case 'C':{
-                int r;
-                scanf("%d",&r);
-                Circle circle(r);
-                shapes[circle.getName()] = circle.getArea();
-            }
+        Shape shape;
+        switch (ch)
+        {
+        case 'R':
+        {
+            int x, y;
+            cin >> x >> y;
+            Rectangle rectangle(x, y);
+            shape = rectangle;
+            shapes.push_back(shape);
+            break;
+        }
+        case 'T':
+        {
+            int x, y, z;
+            cin >> x >> y >> z;
+            Triangle triangle(x, y, z);
+            shape = triangle;
+            shapes.push_back(shape);
+            break;
+        }
+        case 'C':
+        {
+            int r;
+            cin >> r;
+            Circle circle(r);
+            shape = circle;
+            shapes.push_back(shape);
+            break;
+        }
+        default:
+        {
+            break;
+        }
         }
     }
-    cout << "\noutput:" << endl;
-    for (auto shape=shapes.begin(); shape != shapes.end(); ++shape) {
-        cout << shape->first << ":" << shape->second << endl;
+    std::cout << "\noutput:" << endl;
+    std::sort(shapes.begin(), shapes.end(), Shape::comp);
+    for (auto shape : shapes)
+    {
+        shape.PrintArea();
     }
     return 0;
 }

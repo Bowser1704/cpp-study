@@ -1,5 +1,6 @@
 #include "CArray.hpp"
 #include <iostream>
+#include <cstring>
 CArray::CArray()
 {
     array = nullptr;
@@ -9,30 +10,31 @@ CArray::CArray()
 
 CArray::CArray(const CArray &temp)
 {
-    array = temp.array;
+    if (!temp.array) {
+        array = nullptr;
+        len = 0;
+        capacity = 0;
+        return;
+    }
+    array = new int[temp.capacity];
+    memcpy(array, temp.array, sizeof(int) * temp.capacity);
     len = temp.len;
     capacity = temp.capacity;
 }
 
 CArray::~CArray()
 {
-    // you can't use array != nullptr, it will... , I'm confused about that.
-    // C: compiler can't promise that NULL pointer is 0;
-    // C++: In c++, the definition of NULL is 0, compiler make nullptr as a null pointer, 
-    if (!array)
-    {
+    if (array){
         delete[] array;
-        array = nullptr;
-        // std::cout << "free array" << std::endl;
     }
+    // std::cout << "free array" << std::endl;
 }
 
 int CArray::length() { return len; }
 
 CArray CArray::operator=(const CArray &temp)
 {
-    array = temp.array;
-    len = temp.len;
+    //
 }
 
 int &CArray::operator[](int index)
