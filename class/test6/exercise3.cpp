@@ -14,7 +14,7 @@ protected:
     double area;
 
 public:
-    virtual void setArea() { area = 0; }
+    virtual void setArea() {area = 0;};
     virtual void setName() { name = "Shape"; }
     void PrintArea()
     {
@@ -32,11 +32,7 @@ private:
     int x, y, z;
 
 public:
-    Triangle(int _x, int _y, int _z) : x(_x), y(_y), z(_z)
-    {
-        setArea();
-        setName();
-    }
+    Triangle(int _x, int _y, int _z) : x(_x), y(_y), z(_z){}
     virtual void setArea()
     {
         int p = (x + y + z) / 2;
@@ -54,11 +50,7 @@ private:
     int r;
 
 public:
-    Circle(int _r) : r(_r)
-    {
-        setArea();
-        setName();
-    }
+    Circle(int _r) : r(_r){}
     virtual void setArea()
     {
         area = PI * r * r;
@@ -75,11 +67,7 @@ private:
     int x, y;
 
 public:
-    Rectangle(int _x, int _y) : x(_x), y(_y)
-    {
-        setArea();
-        setName();
-    }
+    Rectangle(int _x, int _y) : x(_x), y(_y){}
     virtual void setArea()
     {
         area = x * y;
@@ -96,11 +84,11 @@ int main()
     int n;
     char ch;
     cin >> n;
+    Shape shape;
     for (int i = 0; i < n; i++)
     {
         getchar();
         scanf("%c", &ch);
-        Shape shape;
         switch (ch)
         {
         case 'R':
@@ -109,7 +97,6 @@ int main()
             cin >> x >> y;
             Rectangle rectangle(x, y);
             shape = rectangle;
-            shapes.push_back(shape);
             break;
         }
         case 'T':
@@ -118,7 +105,6 @@ int main()
             cin >> x >> y >> z;
             Triangle triangle(x, y, z);
             shape = triangle;
-            shapes.push_back(shape);
             break;
         }
         case 'C':
@@ -127,13 +113,15 @@ int main()
             cin >> r;
             Circle circle(r);
             shape = circle;
-            shapes.push_back(shape);
             break;
         }
         default:
         {
             break;
         }
+        shape.setArea();
+        shape.setName();
+        shapes.push_back(shape);
         }
     }
     std::cout << "\noutput:" << endl;
