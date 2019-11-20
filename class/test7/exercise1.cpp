@@ -13,7 +13,7 @@ public:
     {
         std::cout << this->getName() << ": " << this->getArea() << endl;
     }
-    //结构体指针数组的排序
+    //结构体指针数组的排序ccd
     static int comp(const void* a, const void* b) 
     {
         Shape* A = *(Shape**)a, *B = *(Shape**)b;
