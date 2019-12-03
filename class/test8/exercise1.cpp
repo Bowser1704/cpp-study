@@ -10,7 +10,7 @@ string commonChars(const string &s1, const string &s2)
     {
         for (int i = 0; i < len1; i++)
         {
-            if (s1[i] == s2[i])
+            if (s2.find(s1[i])>=0)
             {
                 result += s1[i];
             }

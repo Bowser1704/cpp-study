@@ -16,7 +16,7 @@ bool isPalindrome(const string &s)
         return false;
     if (len == 1)
         return true;
-    for (int i = 0; i < len; i++)
+    for (int i = 0; i <= len/2 - 1; i++)
     {
         if (s[i] != s[len - i - 1])
         {

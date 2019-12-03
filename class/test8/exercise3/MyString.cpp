@@ -3,19 +3,21 @@ using namespace std;
 
 MyString::MyString() : capacity(0), len(0)
 {
-    str = new char[capacity];
+    //str = new char[capacity];
+    //不应该混用new和malloc以及delete[]
+    str = (char*)calloc(0, sizeof(char));
 }
 
 MyString::MyString(const char *cString)
 {
     capacity = len = strlen(cString);
-    str = new char[capacity];
+    str = (char*)calloc(capacity, sizeof(char));
     memcpy(str, cString, len);
 }
 
 MyString::~MyString()
 {
-    delete[] str;
+    free(str);
 }
 
 char MyString::at(int index) const
