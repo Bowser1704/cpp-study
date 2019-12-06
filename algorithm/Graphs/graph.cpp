@@ -1,30 +1,20 @@
-#include <iostream>
-#include <queue>
-using namespace std;
-
-const int MAXN = 1000;
-
-int n, G[MAXN][MAXN];
-int inq[MAXN] = {0};
-
-void BFS(int u) {
-    queue<int> q;
-    q.push(u);
-    inq[u] = 1;
-    while (!q.empty()) {
-        int u = q.front;
-        q.pop();
-        for (int v=0; v<n; v++) {
-            if (!inq[v] && G[u][v] == 1<<31) {
-                q.push(v);
-                inq[v] = 1;
-            }
+//链式前向星
+const int MAXN = 1024;
+template <typename T>
+class adjacentLinkList {
+    public:
+        struct Edge {
+            int to;     //这条边的下一个节点
+            T value;  //权值
+            int last;   //与此边，同出发点u的上一条边的索引，在edge边数组中的索引
+        }edge[MAXN];
+        int head[MAXN]; //记录某个点的最后一条边的索引，在edge边数组中的下标。
+        int cnt;        //记录有多少个边,cnt为最近空着的那条边，可以直接拿来用。
+    public:
+        void add(int u, int v, T value) {
+            edge[cnt].value = value;
+            edge[cnt].to = v;
+            edge[cnt].last = head[u];
+            head[u] = cnt++;
         }
-    }
-}
-
-void BFSTrave() {
-    for (int u=0; u<n; u++) {
-        if (!inq[u])    BFS(u);
-    }
-}
+};
