@@ -6,13 +6,16 @@ int main(int argc, char *argv[]) {
         length = atoi(argv[1]);
     }
     Sort sort1(length), sort2(length), sort3(length), sort4(length);
-    sort1.insertionSort();
-    // sort1.printSortArr();
-
-    // sort2.shellSort();
+    // sort1.bubbleSort();
     // sort2.printSortArr();
 
-    sort3.mergeSort();
+    sort2.insertionSort();
+    sort2.printSortArr();
+
+    // sort3.shellSort();
+    // sort2.printSortArr();
+
+    //sort3.mergeSort();
     // sort3.printSortArr();
     
     // sort4.quickSort();

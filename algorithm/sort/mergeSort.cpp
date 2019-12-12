@@ -15,8 +15,10 @@ void merge(int *aux, int *arr, int low, int mid, int high)
             arr[k] = aux[i++];
         else if (aux[j] < aux[i])
             arr[k] = aux[j++];
-        else
+        else if (aux[j] > aux[i])
             arr[k] = aux[i++];
+        else
+            i++; j++;
     }
 }
 

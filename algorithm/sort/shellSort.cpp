@@ -4,12 +4,14 @@ using namespace std;
 
 void Sort::shellSort() {
     clock_t start = clock();
-    int h = 1; 
-    while(h < len / 3) {h = 3*h + 1;}
-    while(h >= 1) {
-        for(int i = h; i < len; i++){
-            for(int j = i; j < len && arr[j] < arr[j-h]; j-=h){
-                exch(j, j-h);
+    int h = 1;
+    while (h < len / 3) {
+        h = 3 * h + 1;
+    }
+    while (h >= 1) {
+        for (int i = h; i < len; i++) {
+            for( int j = i; j>=h && arr[j] < arr[j-h]; j-=h) {
+                swap(arr[j], arr[j-h]);
             }
         }
         h /= 3;

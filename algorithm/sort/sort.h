@@ -17,6 +17,7 @@ class Sort{
         void mergeSort();
         void quickSort();
         void heapSort();
+        void bubbleSort();
         void printSortArr();
         bool isLess(int a, int b);
         void exch(int a, int b);
