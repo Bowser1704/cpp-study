@@ -98,7 +98,7 @@ class Solution {
                 minRight = minRight->left;
             }
             p->val = minRight->val;
-            //删除minRight.利用下面的代码。
+            //删除minRight.利用下面的代码。后两种情况。
             p = minRight;
             pp = minRightP;
         }
