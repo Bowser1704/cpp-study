@@ -11,6 +11,6 @@ typedef pNode stack;
 stack createStack();
 void destoryStack(stack S);
 void push(int var, stack S);
-stack pop(stack S);
+int pop(stack S);
 
 #endif

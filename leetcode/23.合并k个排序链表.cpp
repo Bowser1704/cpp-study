@@ -54,6 +54,7 @@ class Solution {
         if (b > e) return nullptr;
         if (b == e) return lists[b];
         int m = b + ((e - b) >> 1);
+        //递归 分治
         return merge(mergeklist(lists, b, m), mergeklist(lists, m + 1, e));
     }
     ListNode* merge(ListNode* l1, ListNode* l2) {

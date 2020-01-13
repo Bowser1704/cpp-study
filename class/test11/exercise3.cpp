@@ -7,24 +7,24 @@ set<int> recordSet;
 
 struct Command {
     string command;
-    int argc;
+    int argv;
 };
 
 void excute(Command& cmd) {
     if (cmd.command == "add") {
-        numset.insert(cmd.argc);
-        recordSet.insert(cmd.argc);
+        numset.insert(cmd.argv);
+        recordSet.insert(cmd.argv);
         cout << numset.size() << endl;
     } else if (cmd.command == "del") {
-        cout << numset.count(cmd.argc) << endl;
-        numset.erase(cmd.argc);
+        cout << numset.count(cmd.argv) << endl;
+        numset.erase(cmd.argv);
     } else if (cmd.command == "ask") {
-        auto ask = recordSet.find(cmd.argc);
+        auto ask = recordSet.find(cmd.argv);
         if (ask != recordSet.end())
             cout << 1 << " ";
         else
             cout << 0 << " ";
-        int count = numset.count(cmd.argc);
+        int count = numset.count(cmd.argv);
         cout << count << endl;
     }
 }
@@ -34,7 +34,7 @@ int main() {
     cin >> n;
     Command cmd[n];
     for (int i = 0; i < n; i++) {
-        cin >> cmd[i].command >> cmd[i].argc;
+        cin >> cmd[i].command >> cmd[i].argv;
     }
     for (int i = 0; i < n; i++) {
         excute(cmd[i]);

@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <string.h>
+// using namespace std;
 
-int main() {
-    int i;
-    int arr[3] = {0};
-    for (i = 0; i <= 3;i++) {
-        arr[i] = 0;
-        printf("sss");
-    }
+int main ( )
+{ 
+    char *s; s="aaaa";
+    
+//   printf("%d\n%d", strlen(str), sizeof(*(str+1)));
+return 0;
 }

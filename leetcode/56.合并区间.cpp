@@ -1,5 +1,5 @@
+#include <algorithm>
 #include <vector>
-#include <map>
 using namespace std;
 /*
  * @lc app=leetcode.cn id=56 lang=cpp
@@ -35,12 +35,19 @@ using namespace std;
 
 // @lc code=start
 class Solution {
-public:
+   public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        if (intervals.size() <= 1) return intervals; 
         vector<vector<int>> result;
-        map<int, int> intervalsMap;
-        
+        sort(intervals.begin(), intervals.end(), [](const vector<int>& a, const vector<int>& b) -> bool { return a[0] < b[0]; });
+        result.push_back(intervals[0]);
+        for (int i = 1; i < intervals.size(); i++) {
+            // auto last = result.back();
+            int back = result.size()-1;
+            if (intervals[i][0] <= result[back][1]) result[back][1] = intervals[i][1] > result[back][1] ? intervals[i][1] : result[back][1];
+            else result.push_back(intervals[i]);
+        }
+        return result;
     }
 };
 // @lc code=end
-

@@ -1,8 +1,7 @@
-#include "Rational.h"
 #include <iostream>
+#include "Rational.h"
 
-int main()
-{
+int main() {
     Rational test_1_2 = Rational(1, 2), test_2_3 = Rational(2, 3), test_4_6 = Rational(4, 6);
     cout << "test_1_2 " << test_1_2.getNumerator() << test_1_2.getDenominator() << endl;
     Rational test_7_6 = test_1_2.add(test_2_3);
