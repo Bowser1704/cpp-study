@@ -9,16 +9,18 @@ int main(int argc, char *argv[]) {
     // sort1.bubbleSort();
     // sort2.printSortArr();
 
-    sort2.insertionSort();
-    sort2.printSortArr();
+    // sort2.insertionSort();
+    // sort2.printSortArr();
 
     // sort3.shellSort();
     // sort2.printSortArr();
 
-    //sort3.mergeSort();
+    //n*lgn
+    sort3.mergeSort();
     // sort3.printSortArr();
     
-    // sort4.quickSort();
+    //n*lgn
+    sort4.quickSort();
     // sort4.printSortArr();
 
     // Sort heapSort(length);

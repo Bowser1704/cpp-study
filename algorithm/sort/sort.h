@@ -7,9 +7,9 @@
 
 class Sort{
     private:
-        int *arr;
         int len;
     public:
+        int *arr;
         Sort(int length);
         ~Sort();
         void insertionSort();
