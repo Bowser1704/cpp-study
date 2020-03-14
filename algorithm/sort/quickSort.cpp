@@ -18,15 +18,16 @@ int partition(int lo, int hi, int *arr) {
 }
 
 void sort(int lo, int hi, int *arr) {
-    if (hi <= lo+1) return;
+    if (hi <= lo + 1) return;
     int pos = partition(lo, hi, arr);
     sort(lo, pos, arr);
     sort(pos + 1, hi, arr);
 }
 
-void Sort::quickSort() {
-    clock_t start = clock();
+double Sort::quickSort() {
+    auto start = chrono::steady_clock::now();
     sort(0, len, arr);
-    clock_t end = clock();
-    cout << "quickSort: " << end - start << " milliseconds" << endl;
+    auto end = chrono::steady_clock::now();
+    // cout << "quickSort: " << end - start << " milliseconds" << endl;
+    return std::chrono::duration<double>(end - start).count();
 }

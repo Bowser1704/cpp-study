@@ -4,7 +4,7 @@
 #include <time.h>
 #include <iostream>
 #include <iterator>
-
+#include <chrono>
 class Sort{
     private:
         int len;
@@ -12,12 +12,12 @@ class Sort{
         int *arr;
         Sort(int length);
         ~Sort();
-        void insertionSort();
-        void shellSort();
-        void mergeSort();
-        void quickSort();
-        void heapSort();
-        void bubbleSort();
+        double insertionSort();
+        double shellSort();
+        double mergeSort();
+        double quickSort();
+        double heapSort();
+        double bubbleSort();
         void printSortArr();
         bool isLess(int a, int b);
         void exch(int a, int b);

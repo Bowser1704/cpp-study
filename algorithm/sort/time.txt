@@ -1,0 +1,42 @@
+BubbleSort
+N: 100 sum: 0.084731  average: 0.000085 seconds
+N: 200 sum: 0.193679  average: 0.000194 seconds
+N: 500 sum: 1.167238  average: 0.001167 seconds
+N: 1000 sum: 4.750938  average: 0.004751 seconds
+N: 2000 sum: 20.061024  average: 0.020061 seconds
+N: 3000 sum: 46.667419  average: 0.046667 seconds
+InsertionSort
+N: 100 sum: 0.008878  average: 0.000009 seconds
+N: 200 sum: 0.031602  average: 0.000032 seconds
+N: 500 sum: 0.186206  average: 0.000186 seconds
+N: 1000 sum: 0.728897  average: 0.000729 seconds
+N: 2000 sum: 2.877488  average: 0.002877 seconds
+N: 3000 sum: 6.736670  average: 0.006737 seconds
+QucikSort
+N: 100 sum: 0.006553  average: 0.000007 seconds
+N: 200 sum: 0.014759  average: 0.000015 seconds
+N: 500 sum: 0.042831  average: 0.000043 seconds
+N: 1000 sum: 0.096960  average: 0.000097 seconds
+N: 2000 sum: 0.207793  average: 0.000208 seconds
+N: 3000 sum: 0.323861  average: 0.000324 seconds
+MergeSort
+N: 100 sum: 0.009992  average: 0.000010 seconds
+N: 200 sum: 0.022661  average: 0.000023 seconds
+N: 500 sum: 0.066169  average: 0.000066 seconds
+N: 1000 sum: 0.147901  average: 0.000148 seconds
+N: 2000 sum: 0.318556  average: 0.000319 seconds
+N: 3000 sum: 0.497775  average: 0.000498 seconds
+HeapSort
+N: 100 sum: 0.012784  average: 0.000013 seconds
+N: 200 sum: 0.029885  average: 0.000030 seconds
+N: 500 sum: 0.087993  average: 0.000088 seconds
+N: 1000 sum: 0.194923  average: 0.000195 seconds
+N: 2000 sum: 0.419120  average: 0.000419 seconds
+N: 3000 sum: 0.664044  average: 0.000664 seconds
+ShellSort
+N: 100 sum: 0.011427  average: 0.000011 seconds
+N: 200 sum: 0.028375  average: 0.000028 seconds
+N: 500 sum: 0.091430  average: 0.000091 seconds
+N: 1000 sum: 0.209494  average: 0.000209 seconds
+N: 2000 sum: 0.497418  average: 0.000497 seconds
+N: 3000 sum: 0.951407  average: 0.000951 seconds

@@ -2,9 +2,7 @@
 
 ## 编译环境 ubuntu18.04 g++ 7.4.0
 
-```c++
-    ./main 99
-    // 无问题，三次destructor
-    ./main 100
-    // error double free， 只有一次destructor
+```sh
+g++ main.cpp sort.cpp bubbleSort.cpp  insertionSort.cpp quickSort.cpp heapSort.cpp shellSort.cpp mergeSort.cpp -o main
+time ./main > time.txt
 ```

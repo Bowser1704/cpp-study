@@ -1,4 +1,5 @@
 #include "sort.h"
+using namespace std;
 
 class Merge {
    private:
@@ -55,12 +56,13 @@ class Merge {
     }
 };
 
-void Sort::mergeSort() {
-    clock_t start = clock();
+double Sort::mergeSort() {
+    auto start = chrono::steady_clock::now();
     Merge merge = Merge(len);
     merge.sort(arr, len);
-    clock_t end = clock();
-    std::cout << "mergeSort: " << end - start << " milliseconds" << std::endl;
+    auto end = chrono::steady_clock::now();
+    // std::cout << "mergeSort: " << end - start << " milliseconds" << std::endl;
+    return std::chrono::duration<double>(end - start).count();
 }
 
 // int main() {
